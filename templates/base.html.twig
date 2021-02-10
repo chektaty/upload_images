@@ -3,11 +3,21 @@
     <head>
         <meta charset="UTF-8">
         <title>{% block title %}Welcome!{% endblock %}</title>
-        {% block stylesheets %}{% endblock %}
+        {% block stylesheets %}
+             <!-- Bootstrap core CSS -->
+             <link href="{{ asset('assets/css/bootstrap.min.css') }}" rel="stylesheet">
 
-        {% block javascripts %}{% endblock %}
+        {% endblock %}
+
     </head>
     <body>
-        {% block body %}{% endblock %}
+        <div>
+            {% block body %}{% endblock %}
+        </div> 
+        {% block javascripts %}
+                <script >
+                
+                </script>
+        {% endblock %}    
     </body>
 </html>

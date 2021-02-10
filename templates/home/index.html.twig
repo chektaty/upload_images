@@ -1,0 +1,41 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Hello HomeController!{% endblock %}
+
+{% block body %}
+<div class="container">
+   <div class="container-fluid">
+      <div class="row py-5">
+         <!-- Upload image input-->
+         <div >
+            {{form(form)}}
+         </div>
+         <!-- End -->
+      </div>
+        
+
+      <div class="row">
+         {% for image in images %}
+         {% if not image.name is empty %}
+         <!-- Gallery item -->
+         <div class="col-xl-3 col-lg-4 col-md-6 mb-4">
+            <div class="bg-white rounded shadow-sm">
+               <img src="{{ asset('uploads/' ~ image.name)  }}"  alt="{{image.name}}" class="img-fluid card-img-top" />
+               <div class="p-4">
+                  <div class="d-flex align-items-center justify-content-between rounded-pill bg-light px-3 py-2 mt-4">
+                     <a class="badge badge-primary px-3 rounded-pill font-weight-normal" href="{{ path('show_image', {id: image.id})}}"> view</a>
+                     <a class="badge badge-danger px-3 rounded-pill font-weight-normal" href="{{ path('delete_image', {id: image.id})}}" > delete</a>
+                  </div>
+               </div>
+            </div>
+         </div>
+         {% endif %}
+         {% endfor %}
+         <!-- End -->
+      </div>
+   </div>
+</div>
+</div>
+
+
+{% endblock %}
