@@ -70,10 +70,9 @@ class HomeController extends AbstractController
             
             //On récupère l'id
             $id = $image->getId();
-            var_dump($id );
-            exit;
+            
 
-        // $images= $this->entityManager->getRepository(Images::class)->find();
+         $images= $this->entityManager->getRepository(Images::class)->find($id);
             
            // return $this->redirectToRoute('home');
        
